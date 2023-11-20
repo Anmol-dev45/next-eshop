@@ -5,6 +5,7 @@ import { Redressed } from "next/font/google";
 import CartCount from "./CartCount";
 import UserMenu from "./UserMenu";
 import { getCurrentUser } from "@/actions/getCurrentUser";
+import Categories from "./Categories";
 
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
@@ -12,8 +13,8 @@ const Navbar = async () => {
   const currentUser = await getCurrentUser();
 
   return (
-    <nav className="sticky top-0 z-30 w-full bg-slate-200 shadow-sm">
-      <div className="border-b-[1px] py-4">
+    <nav className="sticky top-0 z-30 w-full ">
+      <div className="border-b-[1px] py-4 bg-slate-200 shadow-sm">
         <Container>
           <div className="flex items-center justify-between gap-3 md:gap-0">
             <Link
@@ -30,6 +31,7 @@ const Navbar = async () => {
           </div>
         </Container>
       </div>
+      <Categories />
     </nav>
   );
 };

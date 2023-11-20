@@ -44,7 +44,7 @@ export async function POST(req: Request) {
 
       break;
     default:
-      console.warn(`Unhandled event type ${event.type}`);
+      console.log(`Unhandled event type ${event.type}`);
   }
 
   return new Response(null, { status: 200 });

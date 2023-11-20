@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
     if (current_intent) {
       const updated_intent = await stripe.paymentIntents.update(
         payment_intent_id,
-        { amount: total }
+        { amount: total * 100 }
       );
 
       const [existing_order, update_order] = await Promise.all([
@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
     }
   } else {
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: total,
+      amount: total * 100,
       currency: "usd",
       description: "Software development services",
       automatic_payment_methods: { enabled: true },
